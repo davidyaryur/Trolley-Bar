@@ -1,0 +1,127 @@
+<!          INVERSIONES YAR-YUR
+<!   VISUAL INTERACTIVO TROLLEY BAR SANTA TERESA
+<!
+<!        Descargua este archivo
+<!   y ábrelo con cualquier explorador
+<!   (Chrome, Firefox, Edge, Opera...)
+<!
+<!  Espera unos instantes a que se cargue 
+<!   y podrás interactuar con el visual
+<!
+<! Podrás hacer zoom, mover y girar el visual
+<! para observarlo desde cualquier perspectiva
+<!
+<!      En un dispositivo móvil:
+<!   1. Con un sólo dedo giras el visual 
+<!   2. Con dos dedos trasladas el visual
+<!   4. Con tres dedos mueves la luz
+<!   5. Pellizca para hacer zoom
+<!
+<!     En un ordenador:
+<!   1. Click y arrastrar giras el visual 
+<!   2. SHIFT+click y arrastrar trasladas el visual
+<!      (o simplemente click derecho y arrastrar)
+<!   4. ALT+click y arrastrar mueves la luz
+<!   5. CTRL+click y arrastrar para hacer zoom
+<!      (o con la ruedita del mouse)
+<!
+<!
+<!
+<!      YAR-YUR TU ALIADO EN SOLUCIONES
+<!     PUBLICITARIAS PARA PUNTOS DE VENTA
+<!
+<!
+<!
+<!
+<!
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trolley Bar Santa Teresa</title>
+    <style>
+        body { background-color: rgb(36, 36, 36); }
+        .container-wrapper-genially {
+            position: relative;
+            min-height: 400px;
+            max-width: 100%;
+        }
+
+        .loader-genially {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10%;
+        }
+
+        .genially-embed {
+            margin: 0px auto;
+            position: relative;
+            height: auto;
+            width: 100%;
+        }
+        #horizontalContent, #verticalContent {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="horizontalContent">
+        <div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%; background-color: rgb(36, 36, 36);">
+            <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted">
+                <source src="https://video.wixstatic.com/video/427cb9_f62a44e23b62450a9f06f21857782b12/144p/mp4/file.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div id="682e39094fd410fd2c2a1d68" class="genially-embed"></div>
+        </div>
+    </div>
+
+    <div id="verticalContent">
+        <div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%; background-color: rgb(36, 36, 36);">
+            <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted">
+                <source src="https://video.wixstatic.com/video/427cb9_f62a44e23b62450a9f06f21857782b12/144p/mp4/file.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div id="682e1e3a4fd410fd2c05533d" class="genially-embed"></div>
+        </div>
+    </div>
+
+    <script>
+        (function (d) {
+            var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement("script");
+            js.id = id;
+            js.async = true;
+            js.src = "https://view.genially.com/static/embed/embed.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+
+
+        function checkOrientation() {
+            const horizontalContent = document.getElementById('horizontalContent');
+            const verticalContent = document.getElementById('verticalContent');
+
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                horizontalContent.style.display = 'block';
+                verticalContent.style.display = 'none';
+            } else {
+                horizontalContent.style.display = 'none';
+                verticalContent.style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            checkOrientation();
+            window.addEventListener('resize', checkOrientation);
+        };
+
+
+    </script>
+
+</body>
+</html>
