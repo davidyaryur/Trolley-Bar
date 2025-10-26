@@ -1,50 +1,27 @@
-<!          INVERSIONES YAR-YUR
-<!   VISUAL INTERACTIVO TROLLEY BAR SANTA TERESA
-<!
-<!        Descargua este archivo
-<!   y ábrelo con cualquier explorador
-<!   (Chrome, Firefox, Edge, Opera...)
-<!
-<!  Espera unos instantes a que se cargue 
-<!   y podrás interactuar con el visual
-<!
-<! Podrás hacer zoom, mover y girar el visual
-<! para observarlo desde cualquier perspectiva
-<!
-<!      En un dispositivo móvil:
-<!   1. Con un sólo dedo giras el visual 
-<!   2. Con dos dedos trasladas el visual
-<!   4. Con tres dedos mueves la luz
-<!   5. Pellizca para hacer zoom
-<!
-<!     En un ordenador:
-<!   1. Click y arrastrar giras el visual 
-<!   2. SHIFT+click y arrastrar trasladas el visual
-<!      (o simplemente click derecho y arrastrar)
-<!   4. ALT+click y arrastrar mueves la luz
-<!   5. CTRL+click y arrastrar para hacer zoom
-<!      (o con la ruedita del mouse)
-<!
-<!
-<!
-<!      YAR-YUR TU ALIADO EN SOLUCIONES
-<!     PUBLICITARIAS PARA PUNTOS DE VENTA
-<!
-<!
-<!
-<!
-<!
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trolley Bar Santa Teresa</title>
     <style>
-        body { background-color: rgb(36, 36, 36); }
+        /* --- CORRECCIONES --- */
+        
+        /* 1. Resetea html y body para que ocupen toda la pantalla */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(36, 36, 36);
+            overflow: hidden; /* Evita barras de scroll innecesarias */
+        }
+
+        /* 2. Haz que el contenedor principal ocupe todo el body */
         .container-wrapper-genially {
             position: relative;
-            min-height: 400px;
-            max-width: 100%;
+            width: 100%;  /* Era max-width: 100% */
+            height: 100%; /* Era min-height: 400px */
         }
 
         .loader-genially {
@@ -57,21 +34,29 @@
             margin-bottom: 10%;
         }
 
+        /* 3. Haz que el div que contiene el embed también ocupe todo el contenedor */
         .genially-embed {
-            margin: 0px auto;
+            margin: 0; /* Era margin: 0 auto */
             position: relative;
-            height: auto;
+            height: 100%; /* Era height: auto */
             width: 100%;
         }
+
+        /* 4. Asegúrate de que los contenedores de orientación también ocupen todo */
         #horizontalContent, #verticalContent {
             display: none;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
 
+    "
+        y darles estilo con CSS para que se vean bien.
+    
     <div id="horizontalContent">
-        <div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%; background-color: rgb(36, 36, 36);">
+        <div class="container-wrapper-genially">
             <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted">
                 <source src="https://video.wixstatic.com/video/427cb9_f62a44e23b62450a9f06f21857782b12/144p/mp4/file.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -81,7 +66,7 @@
     </div>
 
     <div id="verticalContent">
-        <div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%; background-color: rgb(36, 36, 36);">
+        <div class="container-wrapper-genially">
             <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted">
                 <source src="https://video.wixstatic.com/video/427cb9_f62a44e23b62450a9f06f21857782b12/144p/mp4/file.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -106,10 +91,12 @@
             const horizontalContent = document.getElementById('horizontalContent');
             const verticalContent = document.getElementById('verticalContent');
 
+            // Comprueba si la orientación es horizontal (landscape)
             if (window.matchMedia("(orientation: landscape)").matches) {
                 horizontalContent.style.display = 'block';
                 verticalContent.style.display = 'none';
             } else {
+                // Orientación vertical (portrait)
                 horizontalContent.style.display = 'none';
                 verticalContent.style.display = 'block';
             }
@@ -117,10 +104,9 @@
 
         window.onload = function() {
             checkOrientation();
+            // Añade un listener para re-comprobar la orientación si el usuario gira el dispositivo o cambia el tamaño de la ventana
             window.addEventListener('resize', checkOrientation);
         };
-
-
     </script>
 
 </body>
