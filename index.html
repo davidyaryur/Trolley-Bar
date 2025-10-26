@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trolley Bar Santa Teresa</title>
     <style>
-        /* --- CORRECCIONES --- */
-        
-        /* 1. Resetea html y body para que ocupen toda la pantalla */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: rgb(36, 36, 36);
-            overflow: hidden; /* Evita barras de scroll innecesarias */
+            overflow: hidden;
         }
-
-        /* 2. Haz que el contenedor principal ocupe todo el body */
         .container-wrapper-genially {
             position: relative;
-            width: 100%;  /* Era max-width: 100% */
-            height: 100%; /* Era min-height: 400px */
+            width: 100%;  
+            height: 100%; 
         }
 
         .loader-genially {
@@ -34,15 +29,13 @@
             margin-bottom: 10%;
         }
 
-        /* 3. Haz que el div que contiene el embed también ocupe todo el contenedor */
         .genially-embed {
-            margin: 0; /* Era margin: 0 auto */
+            margin: 0; 
             position: relative;
-            height: 100%; /* Era height: auto */
+            height: 100%; 
             width: 100%;
         }
 
-        /* 4. Asegúrate de que los contenedores de orientación también ocupen todo */
         #horizontalContent, #verticalContent {
             display: none;
             width: 100%;
@@ -51,10 +44,7 @@
     </style>
 </head>
 <body>
-
-    "
-        y darles estilo con CSS para que se vean bien.
-    
+   
     <div id="horizontalContent">
         <div class="container-wrapper-genially">
             <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted">
@@ -91,12 +81,10 @@
             const horizontalContent = document.getElementById('horizontalContent');
             const verticalContent = document.getElementById('verticalContent');
 
-            // Comprueba si la orientación es horizontal (landscape)
             if (window.matchMedia("(orientation: landscape)").matches) {
                 horizontalContent.style.display = 'block';
                 verticalContent.style.display = 'none';
             } else {
-                // Orientación vertical (portrait)
                 horizontalContent.style.display = 'none';
                 verticalContent.style.display = 'block';
             }
@@ -104,10 +92,10 @@
 
         window.onload = function() {
             checkOrientation();
-            // Añade un listener para re-comprobar la orientación si el usuario gira el dispositivo o cambia el tamaño de la ventana
             window.addEventListener('resize', checkOrientation);
         };
     </script>
 
 </body>
 </html>
+
